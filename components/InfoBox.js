@@ -1,5 +1,4 @@
 // Importiere React
-import React from "react";
 
 // InfoBox-Komponente zur Erklärung des Split-Ticketing Konzepts
 export const InfoBox = () => {
