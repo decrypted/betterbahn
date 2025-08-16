@@ -177,7 +177,6 @@ const SearchForm = () => {
 		let storageAge = null;
 		let storageDTicket = null;
 		try {
-			console.log(localStorage.getItem("betterbahn/settings/bahnCard"));
 			storageBahnCard = localStorage.getItem(
 				"betterbahn/settings/bahnCard",
 			);
