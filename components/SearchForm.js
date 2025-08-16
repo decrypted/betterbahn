@@ -148,7 +148,21 @@ const SearchForm = () => {
 		const storageAge = localStorage.getItem("betterbahn/settings/passengerAge");
 		const storageDTicket = localStorage.getItem(
 			"betterbahn/settings/hasDeutschlandTicket",
-		);
+		let storageBahnCard = null;
+		let storageAge = null;
+		let storageDTicket = null;
+		try {
+			console.log(localStorage.getItem("betterbahn/settings/bahnCard"));
+			storageBahnCard = localStorage.getItem(
+				"betterbahn/settings/bahnCard",
+			);
+			storageAge = localStorage.getItem("betterbahn/settings/passengerAge");
+			storageDTicket = localStorage.getItem(
+				"betterbahn/settings/hasDeutschlandTicket",
+			);
+		} catch (e) {
+			// localStorage might be unavailable; fail gracefully
+		}
 		const updates = {};
 		if (storageBahnCard != null) {
 			updates.bahnCard = storageBahnCard;
