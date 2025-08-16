@@ -114,6 +114,8 @@ const SearchForm = () => {
 			}
 		}
 		if (updates.hasDeutschlandTicket != null) {
+		
+		if (updates.hasDeutschlandTicket != null) {
 			try {
 				localStorage.setItem(
 					"betterbahn/settings/hasDeutschlandTicket",
