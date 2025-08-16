@@ -188,6 +188,7 @@ const SearchForm = () => {
 			);
 		} catch (e) {
 			// localStorage might be unavailable; fail gracefully
+			console.warn("Could not access localStorage in SearchForm useEffect:", e);
 		}
 		const updates = {};
 		if (storageBahnCard != null) {
