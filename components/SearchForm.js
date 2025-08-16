@@ -106,15 +106,14 @@ const SearchForm = () => {
 		if (updates.passengerAge != null) {
 			localStorage.setItem(
 				"betterbahn/settings/passengerAge",
-				updates.passengerAge,
+				updates.passengerAge);
 			try {
 				localStorage.setItem("betterbahn/settings/bahnCard", updates.bahnCard);
 			} catch (e) {
 				console.warn("Failed to save bahnCard to localStorage:", e);
 			}
 		}
-		if (updates.hasDeutschlandTicket != null) {
-		
+
 		if (updates.hasDeutschlandTicket != null) {
 			try {
 				localStorage.setItem(
@@ -168,11 +167,6 @@ const SearchForm = () => {
 
 	// Load saved settings from localStorage on component mount
 	useEffect(() => {
-		const storageBahnCard = localStorage.getItem(
-			"betterbahn/settings/bahnCard",
-		);
-		const storageAge = localStorage.getItem("betterbahn/settings/passengerAge");
-		const storageDTicket = localStorage.getItem(
 		let storageBahnCard = null;
 		let storageAge = null;
 		let storageDTicket = null;
@@ -193,7 +187,7 @@ const SearchForm = () => {
 			updates.bahnCard = storageBahnCard;
 		}
 		if (storageAge != null) {
-			updates.passengerAge = parseInt(storageAge);
+			updates.passengerAge = storageAge;
 		}
 		if (storageDTicket != null) {
 			updates.hasDeutschlandTicket = storageDTicket === "true";
