@@ -173,7 +173,6 @@ const SearchForm = () => {
 		);
 		const storageAge = localStorage.getItem("betterbahn/settings/passengerAge");
 		const storageDTicket = localStorage.getItem(
-			"betterbahn/settings/hasDeutschlandTicket",
 		let storageBahnCard = null;
 		let storageAge = null;
 		let storageDTicket = null;
