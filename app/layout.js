@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { InfoBox } from "@/components/InfoBox";
 import AuthProvider from "@/components/AuthProvider";
 
 // Konfiguriere die Schriftarten
@@ -34,6 +35,8 @@ export default function RootLayout({ children }) {
 					<Navbar />
 					{/* Seiteninhalt */}
 					{children}
+					{/* Info-Box über dem Footer */}
+					<InfoBox />
 					{/* Fußzeile einbinden */}
 					<Footer />
 				</AuthProvider>
