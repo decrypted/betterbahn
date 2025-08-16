@@ -95,7 +95,11 @@ const SearchForm = () => {
 	const updateFormData = (updates) => {
 		// save updated form fields to local Storage for convenience
 		if (updates.bahnCard != null) {
-			localStorage.setItem("betterbahn/settings/bahnCard", updates.bahnCard);
+			try {
+				localStorage.setItem("betterbahn/settings/bahnCard", updates.bahnCard);
+			} catch (e) {
+				console.warn("Failed to save bahnCard to localStorage:", e);
+			}
 		}
 		if (updates.hasDeutschlandTicket != null) {
 			localStorage.setItem(
