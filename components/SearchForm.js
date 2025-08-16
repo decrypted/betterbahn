@@ -105,7 +105,7 @@ const SearchForm = () => {
                 );
             }
             if (updates.passengerAge != null) {
-                localStorage.setItem("betterbahn/settings/bahnCard", updates.bahnCard);
+                localStorage.setItem("betterbahn/settings/passengerAge", updates.passengerAge);
             }
         } catch (e) {
             console.warn("Failed to save form data to localStorage:", e);
