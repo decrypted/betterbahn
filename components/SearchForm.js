@@ -142,7 +142,6 @@ const SearchForm = () => {
 
 	// Load saved settings from localStorage on component mount
 	useEffect(() => {
-		console.log(localStorage.getItem("betterbahn/settings/bahnCard"));
 		const storageBahnCard = localStorage.getItem(
 			"betterbahn/settings/bahnCard",
 		);
