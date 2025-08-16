@@ -11,7 +11,7 @@ export const InfoBox = () => {
 						Was ist BetterBahn?
 					</h3>
 					<p className="text-gray-700 leading-relaxed">
-						<strong>TL;DR:</strong> Bahntickets können durch automatische Überprüfungen für &ldquo;Split-Ticketing&rdquo; günstiger werden — die Aufteilung einer Reise in mehrere kleinere Abschnitte, die aufgrund der Preisstruktur der Deutschen Bahn weniger kosten als der Kauf eines durchgehenden Tickets.
+						<strong>TL;DR:</strong> Bahntickets können durch automatische Überprüfungen für &ldquo;Split-Ticketing&rdquo; günstiger werden. Split-Ticketing bedeutet, dass eine Reise in mehrere kleinere Abschnitte aufgeteilt wird. Aufgrund der Preisstruktur der Deutschen Bahn kann dies weniger kosten als der Kauf eines durchgehenden Tickets.
 					</p>
 				</div>
 			</div>
