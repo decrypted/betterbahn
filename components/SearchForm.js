@@ -1,7 +1,7 @@
 "use client";
 
 // Importiere notwendige React-Hooks und Next.js-Router
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 // Konstanten für Formular-Initialwerte
@@ -93,7 +93,24 @@ const SearchForm = () => {
 
 	// Utility functions
 	const updateFormData = (updates) => {
-		setFormData((prev) => ({ ...prev, ...updates }));
+		// save updated form fields to local Storage for convenience
+        try {
+            if (updates.bahnCard != null) {
+                    localStorage.setItem("betterbahn/settings/bahnCard", updates.bahnCard);
+            }
+            if (updates.hasDeutschlandTicket != null) {
+                localStorage.setItem(
+                    "betterbahn/settings/hasDeutschlandTicket",
+                    updates.hasDeutschlandTicket,
+                );
+            }
+            if (updates.passengerAge != null) {
+                localStorage.setItem("betterbahn/settings/bahnCard", updates.bahnCard);
+            }
+        } catch (e) {
+            console.warn("Failed to save form data to localStorage:", e);
+        }
+        setFormData((prev) => ({ ...prev, ...updates }));
 	};
 
 	// Handle URL parsing and navigation
@@ -123,6 +140,38 @@ const SearchForm = () => {
 		// Navigate to discount page with search parameters
 		router.push(`/discount?${searchParams.toString()}`);
 	};
+
+	// Load saved settings from localStorage on component mount
+	useEffect(() => {
+		let storageBahnCard = null;
+		let storageAge = null;
+		let storageDTicket = null;
+		try {
+			storageBahnCard = localStorage.getItem(
+				"betterbahn/settings/bahnCard",
+			);
+			storageAge = localStorage.getItem("betterbahn/settings/passengerAge");
+			storageDTicket = localStorage.getItem(
+				"betterbahn/settings/hasDeutschlandTicket",
+			);
+		} catch (e) {
+			// localStorage might be unavailable; fail gracefully
+			console.warn("Could not access localStorage in SearchForm useEffect:", e);
+		}
+		const updates = {};
+		if (storageBahnCard != null) {
+			updates.bahnCard = storageBahnCard;
+		}
+		if (storageAge != null) {
+			updates.passengerAge = storageAge;
+		}
+		if (storageDTicket != null) {
+			updates.hasDeutschlandTicket = storageDTicket === "true";
+		}
+
+		// Update form data with values from localStorage
+		setFormData((prev) => ({ ...prev, ...updates }));
+	}, []);
 
 	return (
 		<section className="  ">
