@@ -174,7 +174,7 @@ const SearchForm = () => {
 	}, []);
 
 	return (
-		<section className="  ">
+		<section className="mb-16">
 			{/* Unified Input and Search Section */}
 
 			<form onSubmit={handleUrlSubmit} className="space-y-6">
