@@ -107,7 +107,31 @@ const SearchForm = () => {
 			localStorage.setItem(
 				"betterbahn/settings/passengerAge",
 				updates.passengerAge,
-			);
+			try {
+				localStorage.setItem("betterbahn/settings/bahnCard", updates.bahnCard);
+			} catch (e) {
+				console.warn("Failed to save bahnCard to localStorage:", e);
+			}
+		}
+		if (updates.hasDeutschlandTicket != null) {
+			try {
+				localStorage.setItem(
+					"betterbahn/settings/hasDeutschlandTicket",
+					updates.hasDeutschlandTicket,
+				);
+			} catch (e) {
+				console.warn("Failed to save hasDeutschlandTicket to localStorage:", e);
+			}
+		}
+		if (updates.passengerAge != null) {
+			try {
+				localStorage.setItem(
+					"betterbahn/settings/passengerAge",
+					updates.passengerAge,
+				);
+			} catch (e) {
+				console.warn("Failed to save passengerAge to localStorage:", e);
+			}
 		}
 		setFormData((prev) => ({ ...prev, ...updates }));
 	};
